@@ -1,0 +1,40 @@
+one way data flow
+
+props:親から子へ値を渡すために利用する変更不可
+
+state:アプリの状態を記録するオブジェクトこれを書き換え、アプリをインタラクティブにする
+      状態を持つAppはclassとして定義する。
+      仮想DOMは単なるjavascriptオブジェクト。
+      React componentは、stateを収集し、
+      仮想DOMを作る今のDOMとの差分をレンダリングし、小道具として子に渡す
+stateを持つAppはsmartcomponentという
+
+componentが作られる際にconstructor()とrender()メソッド(ヒットライフサイクル)が　アレバ　実行される
+ヒットライフサイクル：クラスcomponentが何かを行う時にあれば実行されるメソッド
+                    render()はcomponentで何をレンダリングするか
+                    constructor()はstateの宣言などに使う
+
+mount:ページのリフレッシュがあると、App componentをrootIDに置き換える
+      index.htmlのdivがrootidを持つのでAppがページに反映される
+      いわゆるアプリの開始点ヒットライフサイクルはこの時に実行される下行
+      (render()があるかconstructor()があるか確認してアレバ実行(他にもメソッドはある))
+updating:アプリの更新点ヒットライフサイクルはこの時に実行される下行
+      　 (render()があるか確認してアレバ実行(他にもメソッドはある))
+unmount:アプリ閉じられたりするときApp componentがページから削除される
+関数：component内で関数を作るときはarrow関数を使うreactに用意されてるメソッド(ヒットライフサイクルなど)は大丈夫
+
+componentsに分ける下図
+App(robots)--Scroll--CardList--Card
+App--SerchBox
+
+json placeholder:
+
+fetch('https://jsonplaceholder.typicode.com/users') 
+    .then(response => response.json())
+    .then(users => this.setState({ robots: users }));
+
+fetchはWindowオブジェクトのメソッド。サーバーにリクエストするためのメソッド
+
+projectのせいりcomponentフォルダとcontainer(smartcomponentのこと)フォルダに分けるのこと
+
+npm run build で最適化
