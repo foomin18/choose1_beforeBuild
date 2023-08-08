@@ -38,7 +38,7 @@ class App extends Component {
                 <div className='tc'>
                     <h1 className='f2'>ROBOFRIENDS</h1>
                     <SearchBox searchChange={this.onSearchChange} />
-                    <Scroll> {/*他のcomponentをwrapするcomponent props.childrenとしてwrapしてるcomponentを受け取る */}
+                    <Scroll> {/*他のcomponentをwrapするcomponent props.childrenとしてwrapしてるcomponentを持つ */}
                         <ErrorBoundry>
                             <CardList robots={filteredRobots} /> {/* CardListarrow関数にrobotsで渡してる*/}
                         </ErrorBoundry>
